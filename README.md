@@ -1,4 +1,4 @@
-# emacs-conig4chezscheme
+# emacs-config4chezscheme
 My emacs config for chezscheme
 更适合中国宝宝体质的chezscheme敲代码用emacs配置(windows环境)
 
