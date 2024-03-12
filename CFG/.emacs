@@ -158,22 +158,24 @@
 (use-package company
   ;; :ensure t
   ;; :autoload company-mode
-  :bind (
-         :map company-active-map
-         (("C-x n"   . company-select-next)
-          ("C-p"   . company-select-previous)
-          ("C-d"   . company-show-doc-buffer)
-          ("<tab>" . company-complete))
-         )
-  :bind ("M-/" . company-mode)
   :init
   (global-company-mode)
+  :bind (
+         :map company-active-map
+              (("C-c n"   . company-select-next)
+               ("C-p"   . company-select-previous)
+               ("C-d"   . company-show-doc-buffer)
+               ("<tab>" . company-complete)
+	       ("M-/" . company-mode)
+	       )
+              )
+  
   ;; :hook
   ;; after-init-hook
   :config
   (progn
     
-    (global-company-mode)
+    ;; (global-company-mode)
     (setq company-idle-delay 0
 	  ompany-minimum-prefix-length 2)
     (setq company-backends
@@ -197,8 +199,8 @@
 
 
 ;; =========================================== ac-geiser
-(use-package ac-geiser
-  :hook ((geiser-mode geiser-repl-mode) . ac-geiser-setup)
+;; (use-package ac-geiser
+;;   :hook ((geiser-mode geiser-repl-mode) . ac-geiser-setup)   ;;因为会导致grep的bind失效,同时对company没什么助力,所以注释掉了....
 ;=======================================sbcl路径
 ;; (setq inferior-lisp-program "E:\\ProgramData\\SBCL\\sbcl.exe -K utf-8")
 ;多lisp实现时
